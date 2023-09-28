@@ -80,3 +80,15 @@ def check_upstox(num):
         print("Upstox : True")
     else:
         print("Upstox : False")
+
+def check_twitter(num):
+    
+    burp0_url = "https://twitter.com:443/i/api/1.1/users/phone_number_available.json?raw_phone_number="+num
+    burp0_cookies = {"guest_id_ads": "v1%3A169588508039136411", "guest_id_marketing": "v1%3A169588508039136411", "_ga": "GA1.2.969011217.1680331615", "g_state": "{\"i_l\":2,\"i_p\":1695971489647}", "personalization_id": "\"v1_TLTq51l/74xiKtwwAu02Jw==\"", "guest_id": "v1%3A169588508039136411", "_gid": "GA1.2.409740323.1695885087", "gt": "1707291914553246024", "_twitter_sess": "BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7AA%253D%253D--1164b91ac812d853b877e93ddb612b7471bebc74", "ct0": "da56cf0776f3c1f7d3177fdebf5dc105"}
+    burp0_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/117.0", "Accept": "*/*", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate", "Referer": "https://twitter.com/i/flow/signup", "X-Csrf-Token": "da56cf0776f3c1f7d3177fdebf5dc105", "X-Guest-Token": "1707291914553246024", "X-Twitter-Client-Language": "en", "X-Twitter-Active-User": "yes", "X-Client-Transaction-Id": "+tOOOLncO7q/emNk65c+wnZe9dtO0qjw0NK4B5Poj7YuzCK6av/ukL5b5frJVUoCD5s9P/ol+xWu6gEtxXTKRDyS7aJc+w", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA", "Te": "trailers"}
+    res =requests.get(burp0_url, headers=burp0_headers, cookies=burp0_cookies)
+    jsonData= res.json()
+    if(jsonData['available']):
+        print("Twitter : False")
+    else:
+        print("Twitter : True")

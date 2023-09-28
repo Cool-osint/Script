@@ -23,11 +23,12 @@ services_num = {
     "flipkart": check_flipkart,
     "upstox": check_upstox,
     "instagram": check_instagram,
-    "snapdeal": check_snapdeal
+    "snapdeal": check_snapdeal,
+    "twitter": check_twitter
 }
 
 # Create a dictionary to map service names to functions
-services_num = {
+services_email = {
     "twitter":check_twitter,
     
 }
@@ -57,7 +58,7 @@ def main():
             print()
 
     elif is_valid_email(identifier):
-        for service_name, service_function in services_num.items():
+        for service_name, service_function in services_email.items():
             print(f"Checking {service_name} for phone number {identifier}...")
             service_function(identifier)
             print()
