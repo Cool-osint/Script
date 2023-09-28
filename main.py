@@ -1,6 +1,7 @@
 import argparse
 import re
 from tools.num_scripts import *
+from tools.email_scripts import *
 
 banner = """
 888b     d888          888      d8b 888                .d88888b.   .d8888b. 8888888 888b    888 88888888888 
@@ -16,13 +17,19 @@ banner = """
 https://github.com/viralvaghela/OSINT_MOBILE @ViralVaghela
 """
 
-# Create a dictionary to map service names to functions
-services = {
+ 
+services_num = {
     "swiggy": check_swiggy,
     "flipkart": check_flipkart,
     "upstox": check_upstox,
     "instagram": check_instagram,
     "snapdeal": check_snapdeal
+}
+
+# Create a dictionary to map service names to functions
+services_num = {
+    "twitter":check_twitter,
+    
 }
 
 def is_valid_phone_number(identifier):
@@ -44,15 +51,16 @@ def main():
     identifier = args.identifier
 
     if is_valid_phone_number(identifier):
-        for service_name, service_function in services.items():
+        for service_name, service_function in services_num.items():
             print(f"Checking {service_name} for phone number {identifier}...")
             service_function(identifier)
             print()
 
     elif is_valid_email(identifier):
-        # Perform email-related checks here
-        print("Email address detected. Email checks not implemented yet.")
-    
+        for service_name, service_function in services_num.items():
+            print(f"Checking {service_name} for phone number {identifier}...")
+            service_function(identifier)
+            print()
     else:
         print("Invalid input. Please provide a valid phone number or email address.")
 
