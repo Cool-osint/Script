@@ -1,8 +1,0 @@
-check_proxies.py
-curl_fix_paypal.py
-num_scripts_proxy.py
-proxy_list.txt
-signin.txt
-test.py
-valid_proxies.txt
-**/__pycache__/
